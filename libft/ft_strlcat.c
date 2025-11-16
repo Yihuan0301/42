@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 19:49:41 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/13 14:31:46 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/14 20:49:33 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (dest_len + src_len);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int	main(void)
 {
 	char	src[] = "world";
@@ -48,7 +48,7 @@ int	main(void)
 	printf("new_dest:%s, dest_len:%zu", dest, ret);
 	return (0);
 }
-/*only care about first (size) bytes, don't scan beyond the size
+only care about first (size) bytes, don't scan beyond the size
 safely appends one string to another with size limit
 but ensures:
 1. Total length doesn't exceed size-1

@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 00:38:52 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/11 19:38:06 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/14 21:14:18 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char		*d;
 	const unsigned char	*s;
-	size_t				i;
 
 	if (!dest && !src)
 		return (NULL);
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
 	if (d < s)
-	{
-		i = 0;
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
+		ft_memcpy(d, s, n);
 	else
-	{
-		while (n > 0)
-			d[--n] = s[n];
-	}
+		while (n--)
+			*(d + n) = *(s + n);
 	return (dest);
 }
 
@@ -43,7 +33,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 int	main(void)
 {
 	char str[] = "Hello World";
-	int	i = 0;
-	ft_memmove(str + 6, str, strlen(str + 6) + 1);
+	ft_memmove(str + 6, str, ft_strlen(str + 6) + 1);
 	printf("%s", str);
 }*/

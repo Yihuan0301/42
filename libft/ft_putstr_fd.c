@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 21:39:46 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/13 22:30:07 by yihzhang         ###   ########.fr       */
+/*   Created: 2025/11/16 16:32:03 by yihzhang          #+#    #+#             */
+/*   Updated: 2025/11/16 18:10:22 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return (NULL);
+	int	len;
+
+	if (!s)
+		return ;
+	len = 0;
+	while (s[len])
+		len++;
+	write (fd, s, len);
 }
+
+/*#include <fcntl.h>
+int	main(void)
+{
+	int	fd = open("test_putstr.txt", O_WRONLY | O_CREAT | O_TRUNC, 0600);
+	ft_putstr_fd("hello", 1);
+	ft_putstr_fd("yihuan", 2);
+	ft_putstr_fd("Bonjour Yihuan", fd);
+}*/

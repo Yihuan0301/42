@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:24:39 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/12 16:40:36 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/13 22:30:47 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,3 @@ atoi("0")         → 0
 atoi("   42")     → 42  (skips leading spaces)
 atoi("42abc")     → 42  (stops at non-digit)
 atoi("abc")       → 0   (no valid number)*/
-

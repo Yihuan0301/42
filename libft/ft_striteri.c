@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 21:39:46 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/13 22:30:07 by yihzhang         ###   ########.fr       */
+/*   Created: 2025/11/16 14:47:46 by yihzhang          #+#    #+#             */
+/*   Updated: 2025/11/16 15:09:43 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	while (*s)
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		f(i, &s[i]);
+		i++;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return (NULL);
 }
+
+/*static void	to_upper(unsigned int i, char *c)
+{
+	(void)i;
+	if (*c >= 'a' && *c <= 'z')
+			*c = *c - 32;
+}
+
+#include "stdio.h"
+
+int	main(void)
+{
+	char s[] = "hello";
+	printf ("%s\n", s);
+	ft_striteri(s, to_upper);
+	printf ("%s\n", s);
+	return (0);
+}*/

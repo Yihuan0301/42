@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 22:58:04 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/13 18:25:41 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/14 21:13:07 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,10 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*p;
-	size_t			i;
 
 	p = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		p[i] = (unsigned char)c;
-		i++;
-	}
+	while (n--)
+		*p++ = (unsigned char)c;
 	return (s);
 }
 
@@ -38,16 +33,16 @@ Real-World Uses:
 ✅ Clear sensitive data (passwords, keys)
 ✅ Fill graphics buffers with color
 ✅ Initialize structures
-
-#include <stdio.h>
+*/
+/*#include <stdio.h>
 int	main(void)
 {
-	char str1[3];
+	char str1[2];
 	int arr[3];
 	int	i;
 
-	ft_memset(str1, 'a', sizeof(str1));
-	printf("ft_memset: str1: %s\n", str1);
+	ft_memset(str1, 255, 1);
+	printf("ft_memset: str1: %d\n", str1[0]);
 
 	ft_memset(arr, 0, sizeof(arr));
 	i = 0;
