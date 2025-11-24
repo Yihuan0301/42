@@ -1,1 +1,30 @@
-123
+##ft_strlcpy vs ft_strlcat Comparison
+Function	  Purpose	  Size Parameter	                 Return Value	   Use Case
+ft_strlcpy	Copy      string	Destination buffer size	 Source length	 Initialize/replace string
+ft_strlcat	Append    string	Destination buffer size	 Total length    attempted	Add to existing string
+
+[ft_strlcpy]
+char dst[10];
+char *src = "Hello World";  // 11 chars (too long!)
+size_t ret = ft_strlcpy(dst, src, 10);
+// Result:
+// dst = "Hello Wor\0"  (9 chars + \0)
+// ret = 11             (length of src)
+
+[ft_strlcat]
+char dst[20] = "Hello";  // Initial: 5 chars
+char *src = " World";    // 6 chars
+size_t ret = ft_strlcat(dst, src, 20);
+// Result:
+// dst = "Hello World\0"  (11 chars + \0)
+// ret = 11               (5 + 6 = 11)
+
+[ft_itoa]
+	s[int_len] = '\0';
+	while (--int_len)
+	{
+		s[int_len] = ln % 10 + '0';
+		ln /= 10;
+	}
+ln % 10       → gives you a NUMBER (0-9)
+ln % 10 + '0' → gives you a CHARACTER ('0'-'9')
