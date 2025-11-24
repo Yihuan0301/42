@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 18:08:33 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/17 13:10:03 by yihzhang         ###   ########.fr       */
+/*   Created: 2025/11/17 16:39:50 by yihzhang          #+#    #+#             */
+/*   Updated: 2025/11/17 17:23:51 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	len;
-
-	if (!s)
-		return ;
-	len = 0;
-	while (s[len])
-		len++;
-	write (fd, s, len);
-	write (fd, "\n", 1);
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
 
-/*#include <fcntl.h>
-int	main(void)
+/*int	main(void)
 {
-	int	fd = open("test_putstr.txt", O_WRONLY | O_CREAT | O_TRUNC, 0600);
-	ft_putstr_fd("hello", 1);
-	ft_putstr_fd("yihuan", 2);
-	ft_putstr_fd("Bonjour Yihuan", fd);
+	int	a = 10, b = 20, c = 30;
+	t_list node1, node2, node3;
+	t_list *lst;
+	t_list *ret;
+	node1.content = &a;
+	node1.next = NULL;
+	node2.content = &b;
+	node2.next = &node1;
+	node3.content = &c;
+	node3.next = &node2;
+	lst = &node3;
+	ret = ft_lstlast(lst);
+	printf("last.content %d", *(int *)(ret->content));
 }*/

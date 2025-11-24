@@ -6,9 +6,11 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 22:42:20 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/11 17:05:39 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/18 12:30:06 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

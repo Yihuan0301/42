@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 19:24:19 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/13 22:32:17 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/18 15:24:07 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*ret;
-	int		len;
+	char		*ret;
+	size_t		len;
 
-	len = ft_strlen(s1) + ft_strlen(s2);
-	ret = (char *)malloc(sizeof(char) * (len + 1));
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	ret = (char *)malloc(sizeof(char) * len);
 	if (!ret)
 		return (NULL);
-	ft_strlcat(ret, s1, len + 1);
-	ft_strlcat(ret, s2, len + 1);
+	ret[0] = '\0';
+	ft_strlcat(ret, s1, len);
+	ft_strlcat(ret, s2, len);
 	return (ret);
 }

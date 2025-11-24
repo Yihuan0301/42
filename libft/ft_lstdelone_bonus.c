@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 18:08:33 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/17 13:10:03 by yihzhang         ###   ########.fr       */
+/*   Created: 2025/11/17 17:24:22 by yihzhang          #+#    #+#             */
+/*   Updated: 2025/11/17 23:48:00 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	int	len;
-
-	if (!s)
+	if (!lst || !del)
 		return ;
-	len = 0;
-	while (s[len])
-		len++;
-	write (fd, s, len);
-	write (fd, "\n", 1);
+	del(lst->content);
+	free(lst);
 }
-
-/*#include <fcntl.h>
-int	main(void)
-{
-	int	fd = open("test_putstr.txt", O_WRONLY | O_CREAT | O_TRUNC, 0600);
-	ft_putstr_fd("hello", 1);
-	ft_putstr_fd("yihuan", 2);
-	ft_putstr_fd("Bonjour Yihuan", fd);
-}*/

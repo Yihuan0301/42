@@ -6,11 +6,13 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 17:38:16 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/11 18:57:25 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/17 22:25:28 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isascii(int c)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }

@@ -6,9 +6,11 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 17:24:47 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/11 17:07:28 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/17 22:14:53 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

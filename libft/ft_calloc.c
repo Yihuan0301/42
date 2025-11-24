@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:41:32 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/12 18:39:36 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/17 22:38:08 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	total_size;
 
 	total_size = count * size;
+	if (size != 0 && total_size / size != count)
+		return (NULL);
 	ptr = malloc(total_size);
 	if (!ptr)
 		return (NULL);

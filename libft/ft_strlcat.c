@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 19:49:41 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/14 20:49:33 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/18 15:26:30 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,15 @@ int	main(void)
 	ret = ft_strlcat(dest, src, size);
 	printf("new_dest:%s, dest_len:%zu", dest, ret);
 	return (0);
-}
-only care about first (size) bytes, don't scan beyond the size
+}only care about first (size) bytes, don't scan beyond the size
 safely appends one string to another with size limit
 but ensures:
 1. Total length doesn't exceed size-1
 2. Result is always null-terminated
 3. Returns total length it tried to create
 4. the third parameter is the buffer size(capacity).not the desired string length
+5. dest must be initialized before using ft_strlcat. 
+	strlcat appends to the end of the string in dest.
+	It finds the end by searching for the first '\0' (null terminator).
+	so the function will read garbage or go out of bounds if uninitialised
 */

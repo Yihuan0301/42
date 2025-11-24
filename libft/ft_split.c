@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:34:50 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/14 21:34:11 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/18 23:47:24 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,20 @@ static int	ft_word_len(char const *s, char c)
 	return (len);
 }
 
+static char	**ft_free(char **arr, int j)
+{
+	int	i;
+
+	i = 0;
+	while (i < j)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
@@ -64,7 +78,7 @@ char	**ft_split(char const *s, char c)
 		word_len = ft_word_len(s + i, c);
 		arr[j] = (char *)malloc(sizeof(char) * (word_len + 1));
 		if (!arr[j])
-			return (NULL);
+			return (ft_free(arr, j));
 		ft_strlcpy(arr[j++], s + i, word_len + 1);
 		i = i + word_len;
 	}

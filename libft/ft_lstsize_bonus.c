@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 18:08:33 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/17 13:10:03 by yihzhang         ###   ########.fr       */
+/*   Created: 2025/11/17 16:22:46 by yihzhang          #+#    #+#             */
+/*   Updated: 2025/11/17 16:38:52 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	int	len;
+	int	i;
 
-	if (!s)
-		return ;
-	len = 0;
-	while (s[len])
-		len++;
-	write (fd, s, len);
-	write (fd, "\n", 1);
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }
 
-/*#include <fcntl.h>
-int	main(void)
+/*int	main(void)
 {
-	int	fd = open("test_putstr.txt", O_WRONLY | O_CREAT | O_TRUNC, 0600);
-	ft_putstr_fd("hello", 1);
-	ft_putstr_fd("yihuan", 2);
-	ft_putstr_fd("Bonjour Yihuan", fd);
+	int	a = 10, b = 20;
+	t_list node1, node2;
+	t_list *lst;
+	int	size;
+	
+	node1.content = &a;
+	node1.next = NULL;
+	node2.content = &b;
+	node2.next = &node1;
+	lst = &node2;
+	size = ft_lstsize(lst);
+	printf("List size: %d\n", size);
+	return (0);
 }*/

@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 21:46:00 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/11/14 23:01:16 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/11/17 23:05:45 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,17 @@ char	*ft_itoa(int n)
 	if (ln < 0)
 		ln = -ln;
 	s[int_len] = '\0';
-	while (--int_len)
+	int_len = int_len - 1;
+	while (int_len > 0)
 	{
 		s[int_len] = ln % 10 + '0';
 		ln /= 10;
+		int_len--;
 	}
 	if (n < 0)
 		s[0] = '-';
+	else
+		s[0] = ln % 10 + '0';
 	return (s);
 }
 
