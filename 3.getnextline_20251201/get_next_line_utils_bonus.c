@@ -6,7 +6,7 @@
 /*   By: yihzhang <yihzhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:26:44 by yihzhang          #+#    #+#             */
-/*   Updated: 2025/12/01 22:35:28 by yihzhang         ###   ########.fr       */
+/*   Updated: 2025/12/03 14:48:03 by yihzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	ft_free(t_list **list, t_list *clean_node, char *buf)
 	if (clean_node)
 	{	
 		if (clean_node->content[0])
-		*list = clean_node;
+			*list = clean_node;
 		else
 		{
 			free(buf);
